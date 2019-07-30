@@ -12,6 +12,7 @@ class logReader
         std::string logReader::getMachSer(int machId);
         std::string logReader::getMachName(int machId);
         int setMacInfo(int machId, std::string MachSerNo, std::string MachName);
+        int getMacInfo();
 
     private:
         std::string basedir = "\\\\aria-data\\Va_Transfer\\TDS\\";

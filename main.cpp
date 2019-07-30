@@ -17,8 +17,9 @@ void getDirList(std::string searchDate, std::string searchMach);
 
 int main()
 {
-    myReader.setMacInfo(0,"w","x");  // Just sets up machineId and Name etc from logReader.cpp  TODO needs fixing proparly.
-     
+    //myReader.setMacInfo(0,"w","x");  // Just sets up machineId and Name etc from logReader.cpp  TODO needs fixing proparly.
+    myReader.getMacInfo();
+
     std::string searchDate;
     // myReader.setMacInfo(0,"","");    // Call myReader to set up machine names.. TODO fix this to use a setup file..
     //enter main loop keep giong until user types 'q'
