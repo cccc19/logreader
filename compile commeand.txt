@@ -1,1 +1,1 @@
-cl main.cpp logReader.cpp -o logareder.exe /std:c++latest
+cl main.cpp logReader.cpp -o logreader.exe /std:c++latest
