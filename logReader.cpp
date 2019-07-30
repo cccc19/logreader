@@ -41,6 +41,7 @@ int logReader::setMacInfo(int machId, std::string MachSerNo, std::string MachNam
 
 int logReader::getMacInfo()  //TODO Fix file read
 {
+    // Read settings.inf file and load machine id's into array.
     std::string filename = "settings.inf";
     std::ifstream infile;
     std::string serNum, machName;
