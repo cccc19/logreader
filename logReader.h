@@ -2,12 +2,14 @@
 #include<iostream>
 #include<fstream>
 #include<string>
+#include<sstream>
 #include<filesystem>
 
 class logReader 
 {
 
-    public:         
+    public:
+        logReader::logReader();        
         std::string logReader::getBaseDir();     
         std::string logReader::getMachSer(int machId);
         std::string logReader::getMachName(int machId);
@@ -17,10 +19,11 @@ class logReader
 
     private:
         std::string basedir = "\\\\aria-data\\Va_Transfer\\TDS\\";
-        static const int MAX_MACHINES = 3;
+        int MAX_MACHINES;
         struct machInfoType {
             std::string MachSerNo;
             std::string MachName;
         } ;
-        machInfoType machInfo[MAX_MACHINES];  // Struct to hold 
+       // Struct to hold the list of machines from settings.inf created as a vector. Size set in Constrctor. 
+        std::vector<machInfoType> machInfo;
 };

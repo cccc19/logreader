@@ -9,15 +9,32 @@ std::string logReader::getMachName(int machId) {
     return Name; }
 int logReader::getMaxMachines() { return MAX_MACHINES; }
 
-
+logReader::logReader()
+{
+    std::string filename = "settings.inf";
+    std::ifstream infile;
+    std::string line;
+    infile.open(filename, std::ios::in);
+    if (!infile)
+    {
+        std::cout << "\nCant find settings.inf\n\n";
+        exit(1);
+    }
+    MAX_MACHINES = 0;
+    while (std::getline(infile, line))
+    {
+        // Create space for the list of machines
+        machInfo.push_back(machInfoType());
+        MAX_MACHINES++;  // Add 1 to MAX_MACHINES for each line in settings.inf
+    }
+    infile.close();
+}
 // TODO Fix write machine info to settings file   
 int logReader::setMacInfo(int machId, std::string MachSerNo, std::string MachName)
 {
     std::string filename = "settings.inf";
     std::ofstream outfile;
     outfile.open(filename, std::ios::out);
-   
-   
     if (!outfile)
     {
         std::cout << "\nCant find settings.inf\n\n";
@@ -60,7 +77,7 @@ int logReader::getMacInfo()  //TODO Fix file read
         machInfo[i].MachName = machName; 
         i++;
     }
-
+    std::cout << MAX_MACHINES << " Machines found in settings.inf\n";
     infile.close();
 
     return 0;
