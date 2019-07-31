@@ -25,5 +25,5 @@ class logReader
             std::string MachName;
         } ;
        // Struct to hold the list of machines from settings.inf created as a vector. Size set in Constrctor. 
-        std::vector<machInfoType> machInfo;
+        std::vector<struct machInfoType> machInfo;
 };
