@@ -7,6 +7,7 @@ std::string logReader::getMachSer(int machId) {
 std::string logReader::getMachName(int machId) { 
     std::string Name = machInfo[machId].MachName;
     return Name; }
+int logReader::getMaxMachines() { return MAX_MACHINES; }
 
 
 // TODO Fix write machine info to settings file   
@@ -15,14 +16,14 @@ int logReader::setMacInfo(int machId, std::string MachSerNo, std::string MachNam
     std::string filename = "settings.inf";
     std::ofstream outfile;
     outfile.open(filename, std::ios::out);
-    // std::size_t found;
-    // infile.open(filename);
-    // if (!infile)
-    // {
-    //     std::cout << "\nUnable to open file\or No file found for this MPC check\n\n";
+   
+   
+    if (!outfile)
+    {
+        std::cout << "\nCant find settings.inf\n\n";
         
-    //     return 0;
-    // }
+        return 1;
+    }
     machInfo[0].MachSerNo = "H192124";
     machInfo[0].MachName = "Edge1"; 
     machInfo[1].MachSerNo = "H192435";

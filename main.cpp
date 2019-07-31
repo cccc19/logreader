@@ -7,7 +7,8 @@
 #include"logReader.h"
 
 
-logReader myReader;                             //create a logReader object
+logReader myReader;    //create a logReader object
+                          
 std::string baseDir = myReader.getBaseDir();    // get the base directory
 
 
@@ -113,7 +114,7 @@ int getResults(std::string filename)
     
     std::replace(filename.begin(),filename.end(),'/','\\');   // Fixes Slashes in file name so they all point correct way for MicroSoft.. and add escape for c++ strings
     
-    std::cout << filename << "\n\n";
+    
   
     std::ifstream infile;
     std::size_t found;
@@ -127,6 +128,7 @@ int getResults(std::string filename)
     }
 
     std::cout << "\nMPC Check\n";
+    std::cout << filename << "\n";
     std::cout << "Leaves with poor backlash: \n\n";
 
     while (!infile.eof() )
