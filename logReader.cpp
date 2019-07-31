@@ -9,7 +9,7 @@ std::string logReader::getMachName(int machId) {
     return Name; }
 int logReader::getMaxMachines() { return MAX_MACHINES; }
 
-logReader::logReader()
+logReader::logReader()  // Constructor
 {
     std::string filename = "settings.inf";
     std::ifstream infile;
@@ -77,7 +77,7 @@ int logReader::getMacInfo()  //TODO Fix file read
         machInfo[i].MachName = machName; 
         i++;
     }
-    std::cout << MAX_MACHINES << " Machines found in settings.inf\n";
+    std::cout << getMaxMachines() << " Machines found in settings.inf\n";
     infile.close();
 
     return 0;
