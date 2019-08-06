@@ -18,11 +18,11 @@ void getDirList(std::string searchDate, std::string searchMach);
 
 int main()
 {
-    //myReader.setMacInfo(0,"w","x");  // Just sets up machineId and Name etc from logReader.cpp  TODO needs fixing proparly.
+    
     myReader.getMacInfo();
 
     std::string searchDate;
-    // myReader.setMacInfo(0,"","");    // Call myReader to set up machine names.. TODO fix this to use a setup file..
+   
     //enter main loop keep giong until user types 'q'
     do
     {
@@ -60,17 +60,14 @@ void getDirList(std::string searchDate, std::string searchMach)
     {
         
         line[i] = part.path().string();  //convert path type to a sting type and stick it in array line[]. 
-        //std::cout << i++ << " : " << part.path().string() << '\n';
-        //std::cout << i << " : " << line[i] << '\n';  // print i, print print directory from line[] array
-                                                        
-        //found = line[i].find(str);
+     
         found = line[i].find(searchMach);
         if (found!=std::string::npos)
         {
-            //std::cout << i << " : " << line[i] << std::endl;
+           
             line[i].append("/MPCChecks");
             std::filesystem::directory_iterator dirSub1ToShow(line[i]);  // create directory object using basePath
-            //std::string linesub1[sizeof(dirSub1ToShow)];
+         
             std::string linesub1[11350];
             int j = 0;
             for (const auto& part1 : dirSub1ToShow) // get each element (directory) and stick it in 'part1' which has type path().
@@ -84,8 +81,7 @@ void getDirList(std::string searchDate, std::string searchMach)
                     {
                         std::string filename = linesub1[j] += "\\Results.csv";
                         
-                        // std::cout << j << " : " << linesub1[j] << std::endl;
-                        //std::cout << j << " : " << filename << std::endl;
+                      
                         if(std::filesystem::exists(filename))
                         {                                                     
                             getResults(filename);     // get the results from the file                      

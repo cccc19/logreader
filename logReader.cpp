@@ -64,10 +64,7 @@ int logReader::getMacInfo()  //TODO Fix file read
     std::ifstream infile;
     std::string serNum, machName;
     infile.open(filename, std::ios::in);
-    // std::string numberOfMachines;
-    // infile >> numberOfMachines;
-    // std::cout << numberOfMachines << "\n";
-    // int maxMachines = std::stoi(numberOfMachines);
+    
     int i = 0;
 
     while (infile >> serNum >> machName)
