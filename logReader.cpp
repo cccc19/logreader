@@ -29,7 +29,7 @@ logReader::logReader()  // Constructor
     }
     infile.close();
 }
-// TODO Fix write machine info to settings file   
+// TODO: Fix write machine info to settings file   
 int logReader::setMacInfo(int machId, std::string MachSerNo, std::string MachName)
 {
     std::string filename = "settings.inf";
@@ -57,7 +57,7 @@ int logReader::setMacInfo(int machId, std::string MachSerNo, std::string MachNam
 }
 
 
-int logReader::getMacInfo()  //TODO Fix file read
+int logReader::getMacInfo()  // TODO: Fix file read
 {
     // Read settings.inf file and load machine id's into array.
     std::string filename = "settings.inf";
