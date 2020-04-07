@@ -18,8 +18,7 @@ class logReader
         int getMacInfo();
 
     private:
-        std::string basedir = "\\\\aria-file01
-        \\Va_Transfer\\TDS\\";
+        std::string basedir = "\\\\aria-file01\\Va_Transfer\\TDS\\";
         int MAX_MACHINES;
         struct machInfoType {
             std::string MachSerNo;
