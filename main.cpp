@@ -32,7 +32,7 @@ int main()
     
     if(searchDate == "q")
         break;
-    for(int i = 0; i < 4; i++)
+    for(int i = 0; i < 5; i++)
     {
         std::cout << std::endl << myReader.getMachName(i) << std::endl;
         getDirList(searchDate, myReader.getMachSer(i));

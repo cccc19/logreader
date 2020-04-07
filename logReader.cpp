@@ -47,6 +47,8 @@ int logReader::setMacInfo(int machId, std::string MachSerNo, std::string MachNam
     machInfo[1].MachName = "Edge2";
     machInfo[2].MachSerNo = "H193860";
     machInfo[2].MachName = "VT5";
+    machInfo[2].MachSerNo = "H191296";
+    machInfo[2].MachName = "VT1";
     //outfile << "10\n";
     outfile << machInfo[0].MachSerNo << " ";
     outfile << machInfo[0].MachName << "\n";
