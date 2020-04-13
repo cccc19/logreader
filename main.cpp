@@ -102,7 +102,7 @@ void getDirList(std::string searchDate, std::string searchMach)
 int getResults(std::string filename)
 {
     std::string line;
-    std::string str = "Leaf";
+    std::string str = "MLCBacklashLeaf";
     std::string str2 = "Marginal";
     std::string str3 = "CollimationGroup/MLCBacklashGroup/MLCBacklash";
     std::string str4 = "/MLCBacklash";
@@ -132,14 +132,19 @@ int getResults(std::string filename)
         std::getline(infile, line);
         found = line.find(str);
         if (found!=std::string::npos){
-            found = line.find(str2);
+            line.replace(line.find(str3),str3.length(),"");  //Tidy up the output
+            line.replace(line.find(str4),str4.length()," "); //Tidy up the output
+            std::cout << line << '\n';
+
+            /*found = line.find(str2);
             if (found!=std::string::npos){
                 
                 line.replace(line.find(str3),str3.length(),"");  //Tidy up the output
                 line.replace(line.find(str4),str4.length()," "); //Tidy up the output
                 std::cout << line << '\n';
                
-            }
+            }*/
+           
         }
     }
     std::cout << "MPC Check END\n\n";
