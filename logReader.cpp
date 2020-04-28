@@ -81,3 +81,8 @@ int logReader::getMacInfo()  //TODO Fix file read
 
     return 0;
 }
+
+int logReader::putmlcData(std::string line)
+{
+    return 0;
+}

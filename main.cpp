@@ -16,6 +16,8 @@ std::string baseDir = myReader.getBaseDir();    // get the base directory
 int getResults(std::string filename);
 void getDirList(std::string searchDate, std::string searchMach);
 
+bool wayToSort(std::string i, std::string j) { return i > j; }
+
 int main()
 {
     
@@ -113,15 +115,19 @@ int getResults(std::string filename)
     
   
     std::ifstream infile;
+    std::vector<std::string> leafFile;
     std::size_t found;
 
     infile.open(filename);
+   
     if (!infile)
     {
         std::cout << "\nUnable to open file\nor No file found for this MPC check\n\n";
         
         return 1;
     }
+
+    
 
     std::cout << "\nMPC Check\n";
     std::cout << filename << "\n";
@@ -135,6 +141,8 @@ int getResults(std::string filename)
             line.replace(line.find(str3),str3.length(),"");  //Tidy up the output
             line.replace(line.find(str4),str4.length()," "); //Tidy up the output
             std::cout << line << '\n';
+            leafFile.push_back(line);
+            logReader::putmlcData(line);
 
             /*found = line.find(str2);
             if (found!=std::string::npos){
@@ -147,6 +155,9 @@ int getResults(std::string filename)
            
         }
     }
+    std::sort(leafFile.begin(), leafFile.end(), wayToSort);
+    for(int i = 0;i <= 10;++i)
+        std::cout << leafFile[i] << std::endl;
     std::cout << "MPC Check END\n\n";
     infile.close();
     return 0;
