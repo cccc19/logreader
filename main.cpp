@@ -34,19 +34,11 @@ int main()
     
     if(searchDate == "q")
         break;
-<<<<<<< HEAD
-        for(int i = 0; i < myReader.getMaxMachines(); i++)
-        {
-            std::cout << std::endl << myReader.getMachName(i) << std::endl;
-            getDirList(searchDate, myReader.getMachSer(i));
-        }
-=======
     for(int i = 0; i < myReader.getMaxMachines(); i++)
     {
         std::cout << std::endl << myReader.getMachName(i) << std::endl;
         getDirList(searchDate, myReader.getMachSer(i));
     }
->>>>>>> f442478e41e9bef9641777d12957cf96c1d22575
     } while(searchDate != "q");
 
     return 0;
@@ -150,7 +142,7 @@ int getResults(std::string filename)
             line.replace(line.find(str4),str4.length()," "); //Tidy up the output
             std::cout << line << '\n';
             leafFile.push_back(line);
-            logReader::putmlcData(line);
+            myReader.putmlcData(line);
 
             /*found = line.find(str2);
             if (found!=std::string::npos){
