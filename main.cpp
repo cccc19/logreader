@@ -16,6 +16,8 @@ std::string baseDir = myReader.getBaseDir();    // get the base directory
 int getResults(std::string filename);
 void getDirList(std::string searchDate, std::string searchMach);
 
+bool wayToSort(std::string i, std::string j) { return i > j; }
+
 int main()
 {
     
@@ -32,11 +34,19 @@ int main()
     
     if(searchDate == "q")
         break;
+<<<<<<< HEAD
         for(int i = 0; i < myReader.getMaxMachines(); i++)
         {
             std::cout << std::endl << myReader.getMachName(i) << std::endl;
             getDirList(searchDate, myReader.getMachSer(i));
         }
+=======
+    for(int i = 0; i < myReader.getMaxMachines(); i++)
+    {
+        std::cout << std::endl << myReader.getMachName(i) << std::endl;
+        getDirList(searchDate, myReader.getMachSer(i));
+    }
+>>>>>>> f442478e41e9bef9641777d12957cf96c1d22575
     } while(searchDate != "q");
 
     return 0;
@@ -102,7 +112,7 @@ void getDirList(std::string searchDate, std::string searchMach)
 int getResults(std::string filename)
 {
     std::string line;
-    std::string str = "Leaf";
+    std::string str = "MLCBacklashLeaf";
     std::string str2 = "Marginal";
     std::string str3 = "CollimationGroup/MLCBacklashGroup/MLCBacklash";
     std::string str4 = "/MLCBacklash";
@@ -113,15 +123,19 @@ int getResults(std::string filename)
     
   
     std::ifstream infile;
+    std::vector<std::string> leafFile;
     std::size_t found;
 
     infile.open(filename);
+   
     if (!infile)
     {
         std::cout << "\nUnable to open file\nor No file found for this MPC check\n\n";
         
         return 1;
     }
+
+    
 
     std::cout << "\nMPC Check\n";
     std::cout << filename << "\n";
@@ -132,16 +146,26 @@ int getResults(std::string filename)
         std::getline(infile, line);
         found = line.find(str);
         if (found!=std::string::npos){
-            found = line.find(str2);
+            line.replace(line.find(str3),str3.length(),"");  //Tidy up the output
+            line.replace(line.find(str4),str4.length()," "); //Tidy up the output
+            std::cout << line << '\n';
+            leafFile.push_back(line);
+            logReader::putmlcData(line);
+
+            /*found = line.find(str2);
             if (found!=std::string::npos){
                 
                 line.replace(line.find(str3),str3.length(),"");  //Tidy up the output
                 line.replace(line.find(str4),str4.length()," "); //Tidy up the output
                 std::cout << line << '\n';
                
-            }
+            }*/
+           
         }
     }
+    std::sort(leafFile.begin(), leafFile.end(), wayToSort);
+    for(int i = 0;i <= 10;++i)
+        std::cout << leafFile[i] << std::endl;
     std::cout << "MPC Check END\n\n";
     infile.close();
     return 0;
