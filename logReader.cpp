@@ -84,5 +84,8 @@ int logReader::getMacInfo()  // TODO: Fix file read
 
 int logReader::putmlcData(std::string line)
 {
+    std::istringstream iss(line);
+    std::vector<std::string> results(std::istream_iterator<std::string>{iss},
+                                 std::istream_iterator<std::string>());
     return 0;
 }

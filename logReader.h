@@ -4,6 +4,7 @@
 #include<string>
 #include<sstream>
 #include<filesystem>
+#include<iterator>
 
 class logReader 
 {
