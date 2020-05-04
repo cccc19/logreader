@@ -87,5 +87,10 @@ int logReader::putmlcData(std::string line)
     std::istringstream iss(line);
     std::vector<std::string> results(std::istream_iterator<std::string>{iss},
                                  std::istream_iterator<std::string>());
+
+    mlcData.push_back(mlcDataType());
+
+    std::cout << results[0][0];
+
     return 0;
 }

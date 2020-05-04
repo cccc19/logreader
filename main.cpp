@@ -155,9 +155,9 @@ int getResults(std::string filename)
            
         }
     }
-    std::sort(leafFile.begin(), leafFile.end(), wayToSort);
+ /*   std::sort(leafFile.begin(), leafFile.end(), wayToSort);
     for(int i = 0;i <= 10;++i)
-        std::cout << leafFile[i] << std::endl;
+        std::cout << leafFile[i] << std::endl;*/
     std::cout << "MPC Check END\n\n";
     infile.close();
     return 0;
